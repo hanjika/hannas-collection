@@ -272,7 +272,7 @@ const COLLECTION = [
     {
         movement: "Pop Art",
         period: "1950s-1970s",
-        placeOfOrigin: "Britain & USA",
+        placeOfOrigin: "Britain and USA",
         characteristics: ["popular and recognisable imagery", "bright colours", "expendable", "low-cost", "mass produced", "witty", "gimmicky", "glamorous"],
         paintings: [
             {
