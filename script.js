@@ -40,6 +40,7 @@ document.body.style.color = textColour;
 const allMovements = document.createElement("section");
 allMovements.classList.add("movements");
 const docMain = document.querySelector("main");
+docMain.classList.add("first-page");
 docMain.appendChild(allMovements);
 
 for (let i = 0; i < 10; i++){

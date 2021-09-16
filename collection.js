@@ -182,7 +182,7 @@ const COLLECTION = [
     {
         movement: "Surrealism",
         period: "1920s–1950s",
-        placeOfOrigin: "France & Belgium",
+        placeOfOrigin: "France and Belgium",
         characteristics: ["dream-like scenes", "symbolic images", "illogical juxtapositions", "distorted figures", "visual puns", "bizarre assembly of ordinary objects"],
         paintings: [
             {
@@ -226,7 +226,7 @@ const COLLECTION = [
 
     {
         movement: "Abstract Expressionism",
-        period: "Late 1940s-1960",
+        period: "late 1940s-1960",
         placeOfOrigin: "New York City, USA",
         characteristics: ["large scale", "abstract motifs", "covered surfaces", "limited chromatism", "free expression of the unconscious", "rhythmic spots and lines"],
         paintings: [
@@ -361,7 +361,7 @@ const COLLECTION = [
 
     {
         movement: 'Photorealism',
-        period: "Late 1960s-1972",
+        period: "late 1960s-1972",
         placeOfOrigin: "USA",
         characteristics: ["realistic", "reproduction", "mechanical", "accurate detail"],
         paintings: [

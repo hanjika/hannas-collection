@@ -41,23 +41,24 @@ if (colour === "#e9c46a" || colour === "#f4a261"){
 }
 document.body.style.color = textColour;
 
-const allPaintings = document.createElement("section")
-allPaintings.classList.add("artwork");
-const docMain = document.querySelector("main");
-docMain.appendChild(allPaintings);
 
 let i = whichMovement();
 const intro = document.createElement("p");
-const introText = document.createTextNode("The " + COLLECTION[i].movement + " movement began in " + COLLECTION[i].placeOfOrigin + " and took place between " + COLLECTION[i].period + ".");
+const introText = document.createTextNode(COLLECTION[i].movement + " began in " + COLLECTION[i].placeOfOrigin + " and took place between " + COLLECTION[i].period + ".");
 intro.appendChild(introText);
-const header = document.querySelector("header");
-header.appendChild(intro);
+const docMain = document.querySelector("main");
+docMain.appendChild(intro);
+const allPaintings = document.createElement("section")
+allPaintings.classList.add("artwork");
+docMain.appendChild(allPaintings);
+
 let works = COLLECTION[i].paintings;
 for (let j = 0; j < 6; j++){
     const newPainting = document.createElement("article");
     const imageLink = document.createElement("a");
+    const fig = document.createElement("figure");
     const image = document.createElement("img");
-    const title = document.createElement("h2");
+    const title = document.createElement("figcaption");
     const titleName = document.createTextNode(works[j].title);
     title.appendChild(titleName);
     const year = document.createElement("p");
@@ -70,8 +71,9 @@ for (let j = 0; j < 6; j++){
     imageLink.setAttribute("href", works[j].link);
     imageLink.setAttribute("target", "_blank");
     imageLink.appendChild(image);
-    newPainting.appendChild(imageLink);
-    newPainting.appendChild(title);
+    fig.appendChild(imageLink);
+    fig.appendChild(title);
+    newPainting.appendChild(fig);
     newPainting.appendChild(year);
     newPainting.appendChild(artist);
     allPaintings.appendChild(newPainting);
