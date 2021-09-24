@@ -32,52 +32,57 @@ let colourScheme = ["#264653", "#2a9d8f", "#e9c46a", "#f4a261", "#e76f51"];
 let textColour = "white";
 let colour = randomColour(colourScheme);
 document.body.style.background = colour;
+
 if (colour === "#e9c46a" || colour === "#f4a261"){
     textColour = "black";
 }
 document.body.style.color = textColour;
 
-const allMovements = document.createElement("section");
-allMovements.classList.add("movements");
 const docMain = document.querySelector("main");
 docMain.classList.add("first-page");
+
+const allMovements = document.createElement("section");
+allMovements.classList.add("movements");
 docMain.appendChild(allMovements);
 
 for (let i = 0; i < 10; i++){
     const newMovement = document.createElement("article");
-    const title = document.createElement("h2");
-    const name = document.createTextNode(COLLECTION[i].movement);
+    allMovements.appendChild(newMovement);
+
     const image = document.createElement("img");
     const photo = randomImage(i);
     image.setAttribute("src", photo);
+    newMovement.appendChild(image);
+
+    const title = document.createElement("h2");
+    title.innerText = COLLECTION[i].movement;
+    newMovement.appendChild(title);
+
     const ul =  document.createElement("ul");
-    const p1 = document.createElement("p");
-    const p2 = document.createElement("p");
-    const artists = document.createElement("a");
+    newMovement.appendChild(ul);
+
+    const period = document.createElement("p");
+    period.innerText = "Period: " + COLLECTION[i].period;
+    newMovement.appendChild(period);
+
+    const place = document.createElement("p");
+    place.innerText = "Place of origin: " + COLLECTION[i].placeOfOrigin;
+    newMovement.appendChild(place);
+
+    const discoverArt = document.createElement("a");
     const link = links[i];
-    artists.setAttribute("href", link);
-    const discover = document.createTextNode("Discover artwork");
+    discoverArt.setAttribute("href", link);
+    discoverArt.innerText = "Discover artwork";
+    newMovement.appendChild(discoverArt);
+
     const traits = randomTraits(i);
-    const period = document.createTextNode("Period: " + COLLECTION[i].period);
-    const place = document.createTextNode("Place of origin: " + COLLECTION[i].placeOfOrigin);
     for (elem of traits){
-        let oneChar = document.createTextNode(elem);
         const li = document.createElement("li");
-        li.appendChild(oneChar);
+        li.innerText = elem;
         ul.appendChild(li);
         li.style.background = colour;
         li.style.color = textColour;
     }
-    artists.style.textDecorationColor = colour;
-    newMovement.appendChild(image);
-    title.appendChild(name);
-    newMovement.appendChild(title);
-    newMovement.appendChild(ul);
-    p1.appendChild(period);
-    p2.appendChild(place);
-    newMovement.appendChild(p1);
-    newMovement.appendChild(p2);
-    artists.appendChild(discover);
-    newMovement.appendChild(artists);
-    allMovements.appendChild(newMovement);
+
+    discoverArt.style.textDecorationColor = colour;
 }

@@ -41,40 +41,52 @@ if (colour === "#e9c46a" || colour === "#f4a261"){
 }
 document.body.style.color = textColour;
 
+const docMain = document.querySelector("main");
+
+
+const returnBtn = document.createElement("button");
+returnBtn.addEventListener("click", () => {
+    location.href = "index.html"
+})
+const topic = document.querySelector("h1");
+document.querySelector("header").insertBefore(returnBtn, topic);
+document.querySelector("header").classList.add("movement-header");
 
 let i = whichMovement();
 const intro = document.createElement("p");
-const introText = document.createTextNode(COLLECTION[i].movement + " began in " + COLLECTION[i].placeOfOrigin + " and took place between " + COLLECTION[i].period + ".");
-intro.appendChild(introText);
-const docMain = document.querySelector("main");
+intro.innerText = COLLECTION[i].movement + " began in " + COLLECTION[i].placeOfOrigin + " and took place between " + COLLECTION[i].period + ".";
 docMain.appendChild(intro);
+
 const allPaintings = document.createElement("section")
 allPaintings.classList.add("artwork");
 docMain.appendChild(allPaintings);
 
-let works = COLLECTION[i].paintings;
-for (let j = 0; j < 6; j++){
+const works = COLLECTION[i].paintings;
+for (const elem of works){
     const newPainting = document.createElement("article");
-    const imageLink = document.createElement("a");
-    const fig = document.createElement("figure");
-    const image = document.createElement("img");
-    const title = document.createElement("figcaption");
-    const titleName = document.createTextNode(works[j].title);
-    title.appendChild(titleName);
-    const year = document.createElement("p");
-    const yearText = document.createTextNode(works[j].year);
-    year.appendChild(yearText);
-    const artist = document.createElement("p");
-    const artistName = document.createTextNode(works[j].artist);
-    artist.appendChild(artistName);
-    image.setAttribute("src", works[j].link);
-    imageLink.setAttribute("href", works[j].link);
-    imageLink.setAttribute("target", "_blank");
-    imageLink.appendChild(image);
-    fig.appendChild(imageLink);
-    fig.appendChild(title);
-    newPainting.appendChild(fig);
-    newPainting.appendChild(year);
-    newPainting.appendChild(artist);
     allPaintings.appendChild(newPainting);
+
+    const fig = document.createElement("figure");
+    newPainting.appendChild(fig);
+
+    const imageLink = document.createElement("a");
+    imageLink.setAttribute("href", elem.link);
+    imageLink.setAttribute("target", "_blank");
+    fig.appendChild(imageLink);
+
+    const image = document.createElement("img");
+    image.setAttribute("src", elem.link);
+    imageLink.appendChild(image);
+
+    const title = document.createElement("figcaption");
+    title.innerText = elem.title;
+    fig.appendChild(title);
+
+    const year = document.createElement("p");
+    year.innerText = elem.year;
+    newPainting.appendChild(year);
+
+    const artist = document.createElement("p");
+    artist.innerText = elem.artist;
+    newPainting.appendChild(artist);
 }
