@@ -94,6 +94,7 @@ article, a:hover {
 }
 
 button {
+    background-color: white;
     background-image: url(Images/home.png);
     background-repeat: no-repeat;
     background-position: center;
